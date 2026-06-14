@@ -1,0 +1,7 @@
+{
+  "name": "doings-evidence",
+  "url": "https://doings-evidence-mcp.example.com/mcp",
+  "headers": {
+    "Authorization": "Bearer replace-with-token"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "doings-evidence": {
+      "command": "node",
+      "args": ["/absolute/path/to/doings-evidence-mcp/dist/server.js"],
+      "env": {
+        "MS_TENANT_ID": "replace-with-tenant-id",
+        "MS_CLIENT_ID": "replace-with-client-id",
+        "MS_GRAPH_SCOPES": "Files.Read.All Sites.Read.All offline_access"
+      }
+    }
+  }
+}

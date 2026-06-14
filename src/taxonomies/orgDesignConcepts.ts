@@ -1,0 +1,22 @@
+export const orgDesignConcepts = [
+  "autonomy",
+  "self-managing teams",
+  "decision rights",
+  "matrix organization",
+  "coordination cost",
+  "role clarity",
+  "span of control",
+  "organizational agility",
+  "sociotechnical systems",
+  "team interdependence",
+  "psychological safety",
+  "organizational ambidexterity",
+  "operating model",
+  "governance",
+  "middle management",
+  "accountability",
+  "OKRs",
+  "alignment",
+  "decentralization",
+  "centralization"
+] as const;
