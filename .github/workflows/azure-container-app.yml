@@ -59,6 +59,13 @@ jobs:
           npm ci --registry=https://registry.npmjs.org/ --no-audit --no-fund
           npm run build
 
+      - name: Register Azure resource providers
+        shell: bash
+        run: |
+          az provider register --namespace Microsoft.OperationalInsights --wait
+          az provider register --namespace Microsoft.App --wait
+          az provider register --namespace Microsoft.ContainerRegistry --wait
+
       - name: Deploy Azure infrastructure
         shell: bash
         run: |
