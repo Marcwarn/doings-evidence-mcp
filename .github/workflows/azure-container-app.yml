@@ -75,6 +75,13 @@ jobs:
         shell: bash
         run: az acr login --name "$AZURE_CONTAINER_REGISTRY"
 
+      - name: Patch Dockerfile npm install commands
+        shell: bash
+        run: |
+          sed -i 's/npm ci --omit=dev/npm install --omit=dev --registry=https:\/\/registry.npmjs.org\/ --no-audit --no-fund/g' Dockerfile
+          sed -i 's/npm ci/npm install --registry=https:\/\/registry.npmjs.org\/ --no-audit --no-fund/g' Dockerfile
+          cat Dockerfile
+
       - name: Build and push image
         shell: bash
         run: |
