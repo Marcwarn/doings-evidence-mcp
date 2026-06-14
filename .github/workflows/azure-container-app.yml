@@ -122,5 +122,14 @@ jobs:
         shell: bash
         run: |
           FQDN=$(az containerapp show --name "$AZURE_CONTAINER_APP_NAME" --resource-group "$AZURE_RESOURCE_GROUP" --query properties.configuration.ingress.fqdn -o tsv)
+          echo "MCP_BASE_URL=https://$FQDN" >> "$GITHUB_ENV"
           echo "MCP health: https://$FQDN/health"
           echo "MCP endpoint: https://$FQDN/mcp"
+
+      - name: Smoke test remote MCP
+        shell: bash
+        env:
+          MCP_BEARER_TOKEN: ${{ secrets.MCP_BEARER_TOKEN }}
+        run: |
+          npm run smoke:health
+          npm run smoke:remote
